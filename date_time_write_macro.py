@@ -3,7 +3,13 @@ automated typing of said strings.
 '''
 
 from datetime import datetime
-import keyboard
+import pyautogui
+
+# Not too necessary given the short macros
+# Fixes a Linux issue where PyAutoGUI crashes when getting info from X11 server
+# TODO: Find a better fix, failsafe might be useful later.
+pyautogui.FAILSAFE = False
+
 
 
 def get_date_and_time_string(time: datetime):
@@ -62,7 +68,7 @@ def write_date_and_time():
     '''
     now = datetime.now()
     date_and_time_string = get_date_and_time_string(now)
-    keyboard.write(date_and_time_string)
+    pyautogui.write(date_and_time_string)
 
 
 
@@ -72,7 +78,7 @@ def write_time():
     '''
     now = datetime.now()
     time_string = get_time_string(now)
-    keyboard.write(time_string)
+    pyautogui.write(time_string)
 
 
 
@@ -82,7 +88,7 @@ def write_date():
     '''
     now = datetime.now()
     date_string = get_date_string(now)
-    keyboard.write(date_string)
+    pyautogui.write(date_string)
 
 
 
@@ -92,7 +98,7 @@ def write_short_date_and_time():
     '''
     now = datetime.now()
     short_date_and_time_string = get_short_date_and_time(now)
-    keyboard.write(short_date_and_time_string)
+    pyautogui.write(short_date_and_time_string)
 
 
 
@@ -103,7 +109,7 @@ def write_end_time():
     now = datetime.now()
     time_string = get_time_string(now)
     end_time_string = ' - ' + time_string
-    keyboard.write(end_time_string)
+    pyautogui.write(end_time_string)
 
 
 

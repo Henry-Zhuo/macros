@@ -1,1 +1,5 @@
 __pycache__
+
+# Generated macro scripts
+build/macro_scripts/*
+build/macro_modules/*
